@@ -1,0 +1,232 @@
+/* ==========================================
+   RESET E CONFIGURAÇÃO BASE
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #030712;
+  color: #f1f5f9;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Fundo em Degradê Preto e Azul em Profundidade */
+.bg-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 50% 20%, #031b4e 0%, #02091d 45%, #000511 100%);
+  z-index: -1;
+}
+
+/* ==========================================
+   HEADER E BICICLETA 3D
+   ========================================== */
+.header-container {
+  text-align: center;
+  padding: 50px 20px 30px;
+  perspective: 1000px;
+}
+
+/* Container do elemento 3D */
+.bike-3d-wrapper {
+  width: 180px;
+  height: 110px;
+  margin: 0 auto 20px auto;
+  transform-style: preserve-3d;
+  animation: float3d 4s ease-in-out infinite alternate;
+}
+
+.bike-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0px 15px 12px rgba(0, 150, 255, 0.4));
+}
+
+.wheel-outer {
+  fill: none;
+  stroke: #00d9ff;
+  stroke-width: 4;
+  filter: url(#glow3d);
+}
+
+.wheel-inner {
+  fill: none;
+  stroke: #0055ff;
+  stroke-width: 2;
+}
+
+.spoke {
+  stroke: #00d9ff;
+  stroke-width: 1.5;
+  opacity: 0.8;
+}
+
+.frame-body {
+  fill: rgba(0, 102, 255, 0.2);
+  stroke: #00f0ff;
+  stroke-width: 5;
+  stroke-linejoin: round;
+}
+
+.frame-line {
+  stroke: #0088ff;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.handlebar, .seat {
+  stroke: #ffffff;
+  stroke-width: 4;
+  stroke-linecap: round;
+  fill: none;
+}
+
+/* Animação Flutuante 3D para a Bike */
+@keyframes float3d {
+  0% {
+    transform: translateY(0) rotateX(10deg) rotateY(-10deg);
+  }
+  100% {
+    transform: translateY(-15px) rotateX(0deg) rotateY(10deg) scale(1.05);
+  }
+}
+
+/* Título */
+.main-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ffffff 20%, #00d9ff 60%, #0044ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 10px 25px rgba(0, 150, 255, 0.3);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+/* ==========================================
+   LAYOUT EM GRID
+   ========================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px 60px;
+  perspective: 1200px; /* Profundidade 3D para os cards */
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* ==========================================
+   CARDS 3D COM EFEITO MODAL NO HOVER
+   ========================================== */
+.card {
+  background: linear-gradient(145deg, #0b1329, #040814);
+  border: 1px solid rgba(0, 140, 255, 0.2);
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform-style: preserve-3d;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8),
+              0 0 15px rgba(0, 80, 255, 0.05);
+}
+
+.card-inner {
+  transform: translateZ(0px);
+  transition: transform 0.4s ease;
+}
+
+.card-icon {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  display: inline-block;
+  filter: drop-shadow(0 5px 10px rgba(0, 217, 255, 0.4));
+  transition: transform 0.4s ease;
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  color: #38bdf8;
+  margin-bottom: 15px;
+  font-weight: 700;
+  border-bottom: 2px solid rgba(0, 217, 255, 0.15);
+  padding-bottom: 8px;
+}
+
+.card-body ul {
+  list-style: none;
+}
+
+.card-body li {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 18px;
+}
+
+.card-body li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: #00d9ff;
+  font-size: 0.8rem;
+}
+
+.card-body strong {
+  color: #ffffff;
+}
+
+/* 
+  EFEITO MODAL / DESTAQUE 3D NO HOVER 
+  Destaca o card simulando um sobressaltar modal
+*/
+.card:hover {
+  z-index: 10;
+  transform: translateY(-12px) scale(1.04) rotateX(4deg);
+  border-color: rgba(0, 217, 255, 0.8);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9),
+              0 0 35px rgba(0, 217, 255, 0.4),
+              inset 0 0 15px rgba(0, 150, 255, 0.2);
+}
+
+.card:hover .card-inner {
+  transform: translateZ(30px); /* Projeta o conteúdo para fora da tela */
+}
+
+.card:hover .card-icon {
+  transform: scale(1.2) rotate(-5deg);
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid rgba(0, 150, 255, 0.1);
+  color: #64748b;
+  font-size: 0.9rem;
+  background: #01040d;
+}

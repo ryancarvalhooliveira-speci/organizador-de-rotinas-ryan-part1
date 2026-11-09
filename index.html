@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bike Loka - Organizador de Rotinas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Neve / Brilho Neon em Degradê -->
+  <div class="bg-gradient"></div>
+
+  <header class="header-container">
+    <!-- Objeto 3D Iluminado: Bicicleta SVG com Efeito Neon e Sombra Profunda -->
+    <div class="bike-3d-wrapper">
+      <svg class="bike-svg" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="wheelGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#00f0ff" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#0044ff" stop-opacity="0.3"/>
+          </radialGradient>
+          <filter id="glow3d" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+          </filter>
+        </defs>
+
+        <!-- Roda Traseira -->
+        <circle cx="40" cy="80" r="30" class="wheel-outer" />
+        <circle cx="40" cy="80" r="22" class="wheel-inner" />
+        <line x1="40" y1="50" x2="40" y2="110" class="spoke" />
+        <line x1="10" y1="80" x2="70" y2="80" class="spoke" />
+
+        <!-- Roda Dianteira -->
+        <circle cx="160" cy="80" r="30" class="wheel-outer" />
+        <circle cx="160" cy="80" r="22" class="wheel-inner" />
+        <line x1="160" y1="50" x2="160" y2="110" class="spoke" />
+        <line x1="130" y1="80" x2="190" y2="80" class="spoke" />
+
+        <!-- Quadro da Bike 3D -->
+        <path d="M40 80 L80 80 L120 45 L60 45 Z" class="frame-body" />
+        <path d="M80 80 L160 80" class="frame-line" />
+        <path d="M120 45 L160 80" class="frame-line front-fork" />
+        <path d="M60 45 L40 80" class="frame-line rear-fork" />
+        
+        <!-- Guidão e Banco -->
+        <path d="M120 45 L115 30 L130 25" class="handlebar" />
+        <path d="M60 45 L58 35 L70 35" class="seat" />
+      </svg>
+    </div>
+
+    <h1 class="main-title">BIKE LOKA</h1>
+    <p class="subtitle">Organizador de Rotinas & Performance Pessoal</p>
+  </header>
+
+  <main class="container">
+    <!-- Grid de Cards com Efeito 3D Modal -->
+    <div class="cards-grid">
+
+      <!-- Card 1: Estudos -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-icon">📚</div>
+          <h2>Estudos Alta Performance</h2>
+          <div class="card-body">
+            <ul>
+              <li><strong>Técnica Pomodoro 50/10:</strong> 50 min de foco total e 10 min de descanso sem telas.</li>
+              <li><strong>Revisão Espaçada:</strong> Revise a matéria 24h, 7 dias e 30 dias após aprender.</li>
+              <li><strong>Ambiente Limpo:</strong> Mantenha apenas o material atual sobre a mesa para evitar sobrecarga visual.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: Trabalho -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-icon">💼</div>
+          <h2>Trabalho & Produtividade</h2>
+          <div class="card-body">
+            <ul>
+              <li><strong>Regra dos 3 Blocos:</strong> Defina 3 tarefas cruciais no início do dia e resolva-as primeiro.</li>
+              <li><strong>Blocos de Reunião:</strong> Agrupe chamadas no mesmo período para proteger o fluxo de foco.</li>
+              <li><strong>Check-out Diário:</strong> Tire 10 minutos no fim do expediente para planejar o dia seguinte.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: Esportes -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-icon">🚴‍♂️</div>
+          <h2>Esportes & Ciclismo</h2>
+          <div class="card-body">
+            <ul>
+              <li><strong>Pedal / Treino Diário:</strong> Reserve pelo menos 45 min para atividade física constante.</li>
+              <li><strong>Progressão Carga/Distância:</strong> Aumente o ritmo gradualmente para prevenir lesões.</li>
+              <li><strong>Manutenção de Equipamento:</strong> Cuide da sua bike/equipamentos semanalmente para evitar imprevistos.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4: Saúde -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-icon">🥗</div>
+          <h2>Saúde & Bem-Estar</h2>
+          <div class="card-body">
+            <ul>
+              <li><strong>Hidratação Inteligente:</strong> Beba 35ml de água por quilo de peso corporal ao longo do dia.</li>
+              <li><strong>Higiene do Sono:</strong> Desligue telas 1h antes de dormir para maximizar a fase REM.</li>
+              <li><strong>Nutrição de Base:</strong> Priorize comida de verdade e reduza ultraprocessados nos dias úteis.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5: Hobbies -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-icon">🎨</div>
+          <h2>Hobbies & Lazer</h2>
+          <div class="card-body">
+            <ul>
+              <li><strong>Tempo Inegociável:</strong> Reserve no mínimo 3 horas semanais dedicadas apenas ao seu hobby favorito.</li>
+              <li><strong>Desconexão Total:</strong> Pratique passatempos longe do celular (leitura, música, artes, mecânica).</li>
+              <li><strong>Aprenda Algo Novo:</strong> Alterne de hobby a cada ano para exercitar a neuroplasticidade.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 6: Gestão do Tempo -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-icon">⏱️</div>
+          <h2>Gestão de Tempo</h2>
+          <div class="card-body">
+            <ul>
+              <li><strong>Matriz de Eisenhower:</strong> Separe o urgente do importante e elimine o irrelevante.</li>
+              <li><strong>Limites Rígidos:</strong> Diga "não" para compromissos que desalinham dos seus objetivos.</li>
+              <li><strong>Descanso Ativo:</strong> Use seu tempo livre para atividades que de fato recuperem sua energia.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Bike Loka — Acelere sua rotina com foco e velocidade.</p>
+  </footer>
+
+</body>
+</html>
